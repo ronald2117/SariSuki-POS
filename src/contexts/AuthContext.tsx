@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const isStaff = userProfile?.role === 'staff';
 
   return (
-    <AuthContext.Provider value={{ currentUser, userProfile, loading, setLoading, storeId, isAdmin, isStaff, logout, fetchUserProfile, updateUserProfile }}>
+    <AuthContext.Provider value={{ currentUser, userProfile, loading, setAuthLoading: setLoading, storeId, isAdmin, isStaff, logout, fetchUserProfile, updateUserProfile }}>
       {!loading && children}
       {loading && (
         <div className="fixed inset-0 bg-background bg-opacity-50 flex items-center justify-center z-50">
