@@ -4,12 +4,13 @@ import { getFirestore, Firestore, enableMultiTabIndexedDbPersistence } from 'fir
 
 // IMPORTANT: Replace this with your actual Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyDPLXAhmI71Zl-eDMiMDypSBVqJF9IM0jo",
+  authDomain: "sarisuki-pos.firebaseapp.com",
+  projectId: "sarisuki-pos",
+  storageBucket: "sarisuki-pos.firebasestorage.app",
+  messagingSenderId: "177420897498",
+  appId: "1:177420897498:web:fd564ac6c9d0975552e9e3",
+  measurementId: "G-178BTMTB58"
 };
 
 let app: FirebaseApp;

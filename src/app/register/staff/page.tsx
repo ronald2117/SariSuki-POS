@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
@@ -74,12 +74,14 @@ export default function StaffRegisterPage() {
         await setDoc(userDocRef, userProfile);
         
         toast({ title: "Registration Successful!", description: "Your staff account has been created." });
-        router.push('/login'); // Redirect to login after successful registration
+        router.push('/staff/record-sale'); // Redirect to staff dashboard after successful registration
       }
     } catch (err: any) {
       let message = "Failed to register. Please try again.";
       if (err.code === 'auth/email-already-in-use') {
         message = "This email is already registered.";
+      } else if (err.code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.') {
+        message = "Firebase API key is not valid. Please check your Firebase configuration.";
       }
       setError(message);
       toast({ variant: "destructive", title: "Registration Failed", description: message });

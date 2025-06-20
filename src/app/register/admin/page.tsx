@@ -82,12 +82,14 @@ export default function AdminRegisterPage() {
         await batch.commit();
 
         toast({ title: "Registration Successful!", description: `Your store "${data.storeName}" has been created. Your Store ID is ${storeId}. Please save it.` });
-        router.push('/login'); // Redirect to login after successful registration
+        router.push('/admin/products'); // Redirect to admin dashboard after successful registration
       }
     } catch (err: any) {
       let message = "Failed to register. Please try again.";
       if (err.code === 'auth/email-already-in-use') {
         message = "This email is already registered.";
+      } else if (err.code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.') {
+        message = "Firebase API key is not valid. Please check your Firebase configuration.";
       }
       setError(message);
       toast({ variant: "destructive", title: "Registration Failed", description: message });
